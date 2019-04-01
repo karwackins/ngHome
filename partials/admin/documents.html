@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-6">
+      <input type="text" class="form-control" placeholder="szukaj..." ng-model="search">
+      <br>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <a href="#/admin/document/create" class="btn btn-success">Nowy dokument</a>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div ng-repeat="document in documents | filter : search">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            <h2>
+                {{document.name}}
+                <span class="label label-warning pull-right">cena: {{document.price | number:2}} zł</span>
+            </h2>
+
+            <h3><span class="label label-info">Waga: {{document.weight}} kg</span></h3>
+            <br>
+
+            <p>{{document.description}}</p>
+            <br>
+
+            <a href="#/admin/document/edit/{{document.id}}" class="btn btn-success">Edytuj</a>
+            <button ng-click="delete( document , $index )" class="btn btn-danger pull-right">Usuń</button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

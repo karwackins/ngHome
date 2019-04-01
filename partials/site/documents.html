@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-6">
+      <input type="text" class="form-control" placeholder="szukaj..." ng-model="search">
+      <br>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="panel panel-default" ng-repeat="document in documents | filter : search">
+        <div class="panel-body" ng-init="checkCart(document)">
+          <h2><span class="label label-warning pull-right">{{document.price | number:2}} zł / kg</span></h2>
+            <h2><a href="#/document/{{document.id}}">{{document.name}}</a></h2>
+          <p>&nbsp;</p>
+          <a href="#/document/{{document.id}}" class="btn btn-info">Szczegóły</a>
+          <button ng-click="addToCart( document )" class="btn btn-primary" ng-if="!document.qty">Dodaj do koszyka
+              {{document.qty}}</button>
+          <button ng-click="addToCart( document )" class="btn btn-primary" ng-if="document.qty">Dodano juz:
+              {{document.qty}}</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

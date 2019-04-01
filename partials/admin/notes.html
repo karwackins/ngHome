@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-6">
+      <input type="text" class="form-control" placeholder="szukaj..." ng-model="search">
+      <br>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <a href="#/admin/note/create" class="btn btn-success">Nowa notatka</a>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div ng-repeat="note in notes | filter : search">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            <h2>
+                {{note.title}}
+                <span class="label label-warning pull-right">Tytuł: {{note.title}}</span>
+            </h2>
+
+            <h3><span class="label label-info">Tekst: {{note.content}}</span></h3>
+            <br>
+
+            <a href="#/admin/note/edit/{{note.id}}" class="btn btn-success">Edytuj</a>
+            <button ng-click="delete( note , $index )" class="btn btn-danger pull-right">Usuń</button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
