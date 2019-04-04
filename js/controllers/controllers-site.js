@@ -56,9 +56,19 @@ controllersAdmin.controller( 'documentCreate' , [ '$scope' , '$http' , '$routePa
     };
 }]);
 
+controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http' , function( $scope , $http ){
+
+    $http.get( 'api/site/notes/get/' ).
+    success( function( data ){
+        $scope.notes = data;
+    }).error( function(){
+        console.log( 'Błąd pobrania pliku json' );
+    });
+
+}]);
 
 
-controllersAdmin.controller( 'login' , [ '$scope' , '$http', 'store' , function( $scope , $http, store ){
+controllersAdmin.controller( 'login' , [ '$scope' , '$http', 'store', '$location' , function( $scope , $http, store, $location ){
 
 	// TODO: pobrać dane z formularza i przesłać do bazy (uwierzytelnianie)
 
@@ -76,6 +86,7 @@ controllersAdmin.controller( 'login' , [ '$scope' , '$http', 'store' , function(
             if(!data.error)
             {
                 store.set('token', data.token);
+                $location.path('/notes');
             }
         }).error( function(){
             console.log( 'Błąd komunikacji z API' );

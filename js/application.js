@@ -69,6 +69,18 @@ app.config( [ '$routeProvider' , '$httpProvider' , function( $routeProvider , $h
 		templateUrl : 'partials/site/document.html'
 	});
 
+    // ================== Site Notes ====================
+
+    $routeProvider.when( '/notes' , {
+        controller : 'siteNotes',
+        templateUrl : 'partials/site/notes.html'
+    });
+
+    $routeProvider.when( '/admin/note/create' , {
+        controller: 'noteCreate',
+        templateUrl : 'partials/admin/note-create.html'
+    });
+
 
 	// ================ Login & Register ==================
 
@@ -85,7 +97,7 @@ app.config( [ '$routeProvider' , '$httpProvider' , function( $routeProvider , $h
 	// ================== Default ====================
 
 	$routeProvider.otherwise({
-		redirectTo: '/documents'
+		redirectTo: '/login'
 	});
 
 }]);
