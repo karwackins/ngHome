@@ -76,9 +76,9 @@ app.config( [ '$routeProvider' , '$httpProvider' , function( $routeProvider , $h
         templateUrl : 'partials/site/notes.html'
     });
 
-    $routeProvider.when( '/admin/note/create' , {
+    $routeProvider.when( '/note/create' , {
         controller: 'noteCreate',
-        templateUrl : 'partials/admin/note-create.html'
+        templateUrl : 'partials/site/note-create.html'
     });
 
 

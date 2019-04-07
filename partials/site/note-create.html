@@ -1,0 +1,31 @@
+<form ng-submit="createNote( note )">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label>Tytuł</label>
+          <input type="text" class="form-control" ng-model="note.title">
+        </div>
+
+        <div class="form-group">
+          <label>Tekst</label>
+          <textarea rows="5" class="form-control" ng-model="note.content"></textarea>
+        </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-right">
+        <p>&nbsp;</p>
+        <hr>
+        <a href="#/notes" class="btn btn-default">Wróć bez zmian</a>
+        <button type="submit" class="btn btn-primary" ng-if="!success">Zapisz zmiany</button>
+        <button type="button" class="btn btn-success" ng-if="success" disabled>Zapisano zmiany</button>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</form>

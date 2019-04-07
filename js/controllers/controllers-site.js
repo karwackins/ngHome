@@ -47,6 +47,24 @@ controllersAdmin.controller( 'documentCreate' , [ '$scope' , '$http' , '$routePa
     };
 }]);
 
+controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams', '$timeout', function( $scope , $http, $routeParams, $timeout ) {
+    var document_id = $routeParams.id;
+    $scope.createNote = function (note) {
+        $http.post('/api/site/notes/create/', {
+            note: note
+        }).success(function () {
+            $scope.success = true;
+            $timeout(function () {
+                $scope.success = false;
+                $scope.note = {};
+            }, 3000)
+        }).error(function () {
+            console.log('Błąd komunikacji z API');
+        });
+        console.log($scope.note);
+    };
+}]);
+
 controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http' , function( $scope , $http ){
 
     $http.get( 'api/site/notes/get/' ).

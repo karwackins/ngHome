@@ -14,6 +14,7 @@ class Notes extends CI_Controller {
         $post = file_get_contents('php://input');
         $_POST = json_decode($post, true);
         $this->load->model('site/Notes_model');
+
     }
 
     /**
@@ -35,6 +36,7 @@ class Notes extends CI_Controller {
     public function create()
     {
         $note = $this->input->post('note');
+        $note = array_merge($note, array('date' => date("Y-m-d")));
         $this->Notes_model->create($note);
     }
 
