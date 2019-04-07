@@ -19,12 +19,14 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li ng-class="{ active : isActive( '/documents' ) }"><a href="#/documents">Dokumenty</a></li>
+              <li ng-class="{ active : isActive( '/documents' ) }"><a href="#/documents" ng-if="loggedIn">Dokumenty</a></li>
+              <li ng-class="{ active : isActive( '/notes' ) }"><a href="#/notes" ng-if="loggedIn">Notatki</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li ng-class="{ active : isActive( '/login' ) }"><a href="#/login">Logowanie</a></li>
-              <li ng-class="{ active : isActive( '/register' ) }"><a href="#/register">Rejestracja</a></li>
-              <li ng-class="{ active : isActive( '/admin' ) }"><a href="#/admin/users">Admin</a></li>
+              <li ng-class="{ active : isActive( '/login' ) }"><a href="#/login" ng-if="!loggedIn">Logowanie</a></li>
+              <li ng-class="{ active : isActive( '/register' ) }"><a href="#/register" ng-if="!loggedIn">Rejestracja</a></li>
+              <li ng-class="{ active : isActive( '/admin' ) }"><a href="#/admin/users"  ng-if="loggedIn">Admin</a></li>
+              <li ng-class="{ active : isActive( '/login' ) }"><a href="" ng-if="loggedIn" ng-click="logout()">Wyloguj</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

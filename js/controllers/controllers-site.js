@@ -3,15 +3,6 @@
 var controllersSite = angular.module( 'controllersSite' , [] );
 
 
-controllersSite.controller( 'siteDocuments' , [ '$scope' , '$http' , function( $scope , $http){
-	
-	$http.get( 'api/site/documents/get/' ).
-	success( function( data ){
-		$scope.documents = data;
-	}).error( function(){
-		console.log( 'Błąd pobrania pliku json' );
-	});
-}]);
 
 
 controllersSite.controller( 'siteDocument' , [ '$scope' , '$http' , '$routeParams', function( $scope , $http , $routeParams){
@@ -56,31 +47,70 @@ controllersAdmin.controller( 'documentCreate' , [ '$scope' , '$http' , '$routePa
     };
 }]);
 
+controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams', '$timeout','checkToken' , function( $scope , $http, $routeParams, $timeout, checkToken ) {
+    var document_id = $routeParams.id;
+    $scope.createNote = function (note) {
+        $http.post('/api/site/notes/create/', {
+            note: note,
+            payload: checkToken.payload()
+        }).success(function () {
+            $scope.success = true;
+            $timeout(function () {
+                $scope.success = false;
+                $scope.note = {};
+            }, 3000)
+        }).error(function () {
+            console.log('Błąd komunikacji z API');
+        });
+    };
+}]);
+
+controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'checkToken' , function( $scope , $http, $location, checkToken ){
+
+    if(!checkToken.loggedIn())
+    {
+        $location.path('/login')
+    }
+
+    $http.get( 'api/site/notes/get/' ).
+    success( function( data ){
+        $scope.notes = data;
+    }).error( function(){
+        console.log( 'Błąd pobrania pliku json' );
+    });
+
+}]);
 
 
-controllersAdmin.controller( 'login' , [ '$scope' , '$http', 'store' , function( $scope , $http, store ){
+controllersSite.controller( 'login' , [ '$scope' , '$http' , 'store', 'checkToken','$location' , function( $scope , $http , store, checkToken, $location ){
 
-	// TODO: pobrać dane z formularza i przesłać do bazy (uwierzytelnianie)
+    if(checkToken.loggedIn())
+    {
+        $location.path('/notes')
+    }
+    $scope.user = {};
 
-	$scope.input = {};
+    $scope.formSubmit = function ( user ) {
 
-	$scope.formSubmit = function (user) {
-        $http.post( '/api/site/user/login/', {
-            email: user.email,
-            password: user.password
-        }).
-        success( function(data){
+        $http.post( 'api/site/user/login/' , {
+            email : user.email,
+            password : user.password
+        }).success( function( data ){
+
             $scope.submit = true;
             $scope.error = data.error;
 
-            if(!data.error)
+            if ( !data.error )
             {
-                store.set('token', data.token);
+                store.set( 'token' , data.token );
+                location.reload();
             }
+
         }).error( function(){
-            console.log( 'Błąd komunikacji z API' );
+            console.log( 'Błąd połączenia z API' );
         });
-	};
+
+    };
 
 }]);
 

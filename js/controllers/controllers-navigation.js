@@ -3,7 +3,12 @@
 var controllersNavigation = angular.module( 'controllersNavigation' , [] );
 
 
-controllersNavigation.controller( 'navigation' , [ '$scope' , '$location' , function( $scope , $location ){
+controllersNavigation.controller( 'navigation' , [ '$scope' , '$location', 'checkToken' , function( $scope , $location, checkToken ){
+
+    if(checkToken.loggedIn())
+        $scope.loggedIn = true;
+    else
+        $scope.loggedIn = false;
 
 	$scope.navigation = function () {
 		if ( /^\/admin/.test( $location.path() ) )
@@ -16,6 +21,11 @@ controllersNavigation.controller( 'navigation' , [ '$scope' , '$location' , func
 	$scope.isActive = function ( path ) {
 		return $location.path() === path;
 	};
+
+    $scope.logout = function () {
+        checkToken.del();
+        location.reload();
+    }
 
 
 }]);
