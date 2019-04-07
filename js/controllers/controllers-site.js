@@ -65,7 +65,12 @@ controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams
     };
 }]);
 
-controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http' , function( $scope , $http ){
+controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'checkToken' , function( $scope , $http, $location, checkToken ){
+
+    if(!checkToken.loggedIn())
+    {
+        $location.path('/login')
+    }
 
     $http.get( 'api/site/notes/get/' ).
     success( function( data ){
