@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1063303d-2ff5-41c3-a0f7-cea0cb73f7b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/partials/site/note-create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/application/controllers/site/Notes.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/application/controllers/site/Notes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/controllers/controllers-site.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/controllers/controllers-site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/site/notes.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/site/notes.html" afterDir="false" />
     </list>
@@ -92,16 +90,16 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="27" />
-          <entry key="JavaScript" value="26" />
-          <entry key="PHP" value="52" />
+          <entry key="JavaScript" value="27" />
+          <entry key="PHP" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="358" />
-          <entry key="JavaScript" value="1182" />
-          <entry key="PHP" value="1624" />
-          <entry key="PLAIN_TEXT" value="101" />
+          <entry key="HTML" value="371" />
+          <entry key="JavaScript" value="1264" />
+          <entry key="PHP" value="1759" />
+          <entry key="PLAIN_TEXT" value="136" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -117,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers/controllers-site.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+            <state relative-caret-position="142">
+              <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -135,8 +133,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/application/controllers/site/Notes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="38" column="67" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
+            <state relative-caret-position="224">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/application/controllers/site/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -153,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/site/notes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="186">
+              <caret line="26" column="80" lean-forward="true" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -164,6 +171,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -238,11 +254,11 @@
         <option value="$PROJECT_DIR$/partials/site/navigation.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/services.js" />
-        <option value="$PROJECT_DIR$/js/controllers/controllers-site.js" />
         <option value="$PROJECT_DIR$/partials/site/note-create.html" />
         <option value="$PROJECT_DIR$/js/application.js" />
-        <option value="$PROJECT_DIR$/partials/site/notes.html" />
         <option value="$PROJECT_DIR$/api/application/models/site/Notes_model.php" />
+        <option value="$PROJECT_DIR$/partials/site/notes.html" />
+        <option value="$PROJECT_DIR$/js/controllers/controllers-site.js" />
         <option value="$PROJECT_DIR$/api/application/controllers/site/Notes.php" />
       </list>
     </option>
@@ -275,28 +291,7 @@
             <path>
               <item name="ngHome" type="b2602c69:ProjectViewProjectNode" />
               <item name="ngHome" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ngHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ngHome" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ngHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ngHome" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ngHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ngHome" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -378,7 +373,7 @@
       <workItem from="1554356001170" duration="892000" />
       <workItem from="1554439577112" duration="3248000" />
       <workItem from="1554442869746" duration="591000" />
-      <workItem from="1554620673920" duration="3863000" />
+      <workItem from="1554620673920" duration="6084000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie mozliwosci wyswietlania notatek po stronie 'Site'">
       <created>1554362147513</created>
@@ -401,11 +396,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554621245449</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="zapis do bazy daty dodania notatki">
+      <created>1554641032022</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554641032022</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114951000" />
+    <option name="totallyTimeSpent" value="117172000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -418,11 +420,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="711" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21376519" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21376519" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32931036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32854578" />
@@ -432,7 +434,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32832617" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32854578" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32854578" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3275862" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -472,7 +474,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="dodanie mozliwosci wyswietlania notatek po stronie 'Site'" />
     <MESSAGE value="obsługa tokenów JWT" />
-    <option name="LAST_COMMIT_MESSAGE" value="obsługa tokenów JWT" />
+    <MESSAGE value="zapis do bazy daty dodania notatki" />
+    <option name="LAST_COMMIT_MESSAGE" value="zapis do bazy daty dodania notatki" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/api/application/controllers/admin/Users.php">
@@ -674,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/application/controllers/site/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/application/models/site/User_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -730,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="69" column="31" lean-forward="true" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/controllers-navigation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -758,24 +747,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/controllers-site.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partials/site/notes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -793,10 +768,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/partials/site/notes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="26" column="80" lean-forward="true" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/application/controllers/site/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/controllers-site.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/application/controllers/site/Notes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="38" column="67" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
+        <state relative-caret-position="224">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>

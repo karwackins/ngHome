@@ -36,7 +36,9 @@ class Notes extends CI_Controller {
     public function create()
     {
         $note = $this->input->post('note');
-        $note = array_merge($note, array('date' => date("Y-m-d")));
+        $payload = $this->input->post('payload');
+        $note = array_merge($note, array('date' => date("Y-m-d")), array('user_id' => $payload['userId']));
+
         $this->Notes_model->create($note);
     }
 

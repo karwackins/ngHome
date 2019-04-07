@@ -47,11 +47,12 @@ controllersAdmin.controller( 'documentCreate' , [ '$scope' , '$http' , '$routePa
     };
 }]);
 
-controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams', '$timeout', function( $scope , $http, $routeParams, $timeout ) {
+controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams', '$timeout','checkToken' , function( $scope , $http, $routeParams, $timeout, checkToken ) {
     var document_id = $routeParams.id;
     $scope.createNote = function (note) {
         $http.post('/api/site/notes/create/', {
-            note: note
+            note: note,
+            payload: checkToken.payload()
         }).success(function () {
             $scope.success = true;
             $timeout(function () {
@@ -61,7 +62,6 @@ controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams
         }).error(function () {
             console.log('Błąd komunikacji z API');
         });
-        console.log($scope.note);
     };
 }]);
 
