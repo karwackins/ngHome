@@ -3,15 +3,6 @@
 var controllersSite = angular.module( 'controllersSite' , [] );
 
 
-controllersSite.controller( 'siteDocuments' , [ '$scope' , '$http' , function( $scope , $http){
-	
-	$http.get( 'api/site/documents/get/' ).
-	success( function( data ){
-		$scope.documents = data;
-	}).error( function(){
-		console.log( 'Błąd pobrania pliku json' );
-	});
-}]);
 
 
 controllersSite.controller( 'siteDocument' , [ '$scope' , '$http' , '$routeParams', function( $scope , $http , $routeParams){
@@ -68,30 +59,35 @@ controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http' , function( $sco
 }]);
 
 
-controllersAdmin.controller( 'login' , [ '$scope' , '$http', 'store', '$location' , function( $scope , $http, store, $location ){
+controllersSite.controller( 'login' , [ '$scope' , '$http' , 'store', 'checkToken','$location' , function( $scope , $http , store, checkToken, $location ){
 
-	// TODO: pobrać dane z formularza i przesłać do bazy (uwierzytelnianie)
+    if(checkToken.loggedIn())
+    {
+        $location.path('/notes')
+    }
+    $scope.user = {};
 
-	$scope.input = {};
+    $scope.formSubmit = function ( user ) {
 
-	$scope.formSubmit = function (user) {
-        $http.post( '/api/site/user/login/', {
-            email: user.email,
-            password: user.password
-        }).
-        success( function(data){
+        $http.post( 'api/site/user/login/' , {
+            email : user.email,
+            password : user.password
+        }).success( function( data ){
+
             $scope.submit = true;
             $scope.error = data.error;
 
-            if(!data.error)
+            if ( !data.error )
             {
-                store.set('token', data.token);
-                $location.path('/notes');
+                store.set( 'token' , data.token );
+                location.reload();
             }
+
         }).error( function(){
-            console.log( 'Błąd komunikacji z API' );
+            console.log( 'Błąd połączenia z API' );
         });
-	};
+
+    };
 
 }]);
 
