@@ -65,6 +65,36 @@ controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams
     };
 }]);
 
+controllersSite.controller( 'noteEdit' , [ '$scope' , '$http' , '$routeParams', '$timeout' , function( $scope , $http , $routeParams , $timeout){
+
+    var note_id = $routeParams.id;
+    $scope.id = note_id;
+    $http.get( 'api/site/notes/get/'+ note_id ).
+    success( function( data ){
+        $scope.note = data;
+    }).error( function(){
+        console.log( 'Błąd pobrania pliku json' );
+    });
+
+    $scope.saveChanges = function ( note ) {
+
+        $http.post( '/api/site/notes/update/', {
+            note: note
+        }).
+        success( function(){
+            $scope.success = true;
+            $timeout(function() {
+                $scope.success = false;
+            }, 3000)
+        }).error( function(){
+            console.log( 'Błąd komunikacji z API' );
+        });
+
+        console.log( note );
+        console.log( $routeParams.id );
+    };
+}]);
+
 controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'checkToken' , function( $scope , $http, $location, checkToken ){
 
     if(!checkToken.loggedIn())

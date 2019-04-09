@@ -19,6 +19,7 @@ class Notes_model extends CI_Model{
         if($id == false)
         {
             $this->db->select('
+                notes.id,
                 notes.title,
                 notes.content,
                 notes.date,
@@ -39,7 +40,7 @@ class Notes_model extends CI_Model{
     public function update($note)
     {
         $this->db->where('id', $note['id']);
-        $this->db->update('Notes', $note);
+        $this->db->update('notes', $note);
     }
 
     public function create($note)

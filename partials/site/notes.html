@@ -27,9 +27,7 @@
             <h4><span class="label label-info">{{note.date}}, {{note.name}}</span></h4>
             <br>
               <p>{{note.content}}</p>
-            <a href="#/admin/note/edit/{{note.id}}" class="btn btn-success">Edytuj</a>
-            <button ng-click="delete( note , $index )" class="btn btn-danger pull-right">Usuń</button>
-
+            <a href="#/note/edit/{{note.id}}" class="btn btn-success">Edytuj</a>
           </div>
         </div>
 

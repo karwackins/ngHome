@@ -81,6 +81,11 @@ app.config( [ '$routeProvider' , '$httpProvider' , function( $routeProvider , $h
         templateUrl : 'partials/site/note-create.html'
     });
 
+    $routeProvider.when( '/note/edit/:id' , {
+        controller: 'noteEdit',
+        templateUrl : 'partials/site/note-edit.html'
+    });
+
 
 	// ================ Login & Register ==================
 
