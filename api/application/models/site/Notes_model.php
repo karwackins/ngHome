@@ -30,7 +30,7 @@ class Notes_model extends CI_Model{
         } else
         {
             $this->db->where('id', $id);
-            $q =  $this->db->get('Notes');
+            $q =  $this->db->get('notes');
             $q = $q->row();
         }
 
@@ -45,12 +45,12 @@ class Notes_model extends CI_Model{
 
     public function create($note)
     {
-        $this->db->insert('Notes', $note);
+        $this->db->insert('notes', $note);
     }
 
     public function delete($note)
     {
         $this->db->where('id', $note['id']);
-        $this->db->delete('Notes', $note);
+        $this->db->delete('notes', $note);
     }
 }
