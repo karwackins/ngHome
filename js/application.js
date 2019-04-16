@@ -86,6 +86,23 @@ app.config( [ '$routeProvider' , '$httpProvider' , function( $routeProvider , $h
         templateUrl : 'partials/site/note-edit.html'
     });
 
+    // ================== Site Receipts ====================
+
+    $routeProvider.when( '/receipts' , {
+        controller : 'siteReceipts',
+        templateUrl : 'partials/site/receipts.html'
+    });
+
+    $routeProvider.when( '/receipt/create' , {
+        controller: 'receiptCreate',
+        templateUrl : 'partials/site/receipt-create.html'
+    });
+
+    $routeProvider.when( '/receipt/edit/:id' , {
+        controller: 'receiptEdit',
+        templateUrl : 'partials/site/receipt-edit.html'
+    });
+
 
 	// ================ Login & Register ==================
 
