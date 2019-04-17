@@ -21,6 +21,7 @@
             <ul class="nav navbar-nav">
               <li ng-class="{ active : isActive( '/documents' ) }"><a href="#/documents" ng-if="loggedIn">Dokumenty</a></li>
               <li ng-class="{ active : isActive( '/notes' ) }"><a href="#/notes" ng-if="loggedIn">Notatki</a></li>
+              <li ng-class="{ active : isActive( '/receipts' ) }"><a href="#/receipts" ng-if="loggedIn">Paragony</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li ng-class="{ active : isActive( '/login' ) }"><a href="#/login" ng-if="!loggedIn">Logowanie</a></li>

@@ -139,8 +139,6 @@ controllersSite.controller( 'noteEdit' , [ '$scope' , '$http' , '$routeParams' ,
         });
 
     };
-
-
 }]);
 
 controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'checkToken' , function( $scope , $http, $location, checkToken ){
@@ -157,6 +155,79 @@ controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'c
         console.log( 'Błąd pobrania pliku json' );
     });
 
+}]);
+
+controllersSite.controller( 'receiptCreate' , [ '$scope' , '$http' , '$routeParams' , 'FileUploader' , '$timeout' , function( $scope , $http , $routeParams , FileUploader , $timeout ){
+    var receipt_id = $routeParams.id;
+
+    $http.get( 'api/site/receipt/create/').
+    success( function( data ){
+        $scope.receipt = data;
+    }).error( function(){
+        console.log( 'Błąd pobrania pliku json' );
+    });
+
+
+    $scope.saveChanges = function ( receipt ) {
+
+        $http.post( '/api/site/receipt/update/', {
+            receipt: receipt
+        }).
+        success( function(){
+            $scope.success = true;
+            $timeout(function() {
+                $scope.success = false;
+            }, 3000)
+        }).error( function(){
+            console.log( 'Błąd komunikacji z API' );
+        });
+
+        console.log( receipt );
+    };
+
+
+    function getImages() {
+        $http.get( 'api/admin/images/get/' + receipt_id ).
+        success( function( data ){
+            $scope.images = data;
+        }).error( function(){
+            console.log( 'Błąd połączenia z API' );
+        });
+    }
+    getImages();
+
+    var uploader = $scope.uploader = new FileUploader({
+        url : 'api/admin/images/upload/' + note_id
+    });
+
+    uploader.filters.push({
+        name: 'imageFilter',
+        fn: function(item /*{File|FileLikeObject}*/, options) {
+            var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+            return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+        }
+    });
+
+    uploader.onCompleteItem = function(fileItem, response, status, headers) {
+        getImages();
+    };
+
+    $scope.delImage = function ( imageName , $index ) {
+
+        $scope.images.splice( $index , 1 );
+
+        $http.post( 'api/admin/images/del/' , {
+
+            id : note_id,
+            image : imageName
+
+        }).success( function(  ){
+
+        }).error( function(){
+            console.log( 'Błąd połączenia z API' );
+        });
+
+    };
 }]);
 
 
