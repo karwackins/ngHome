@@ -156,7 +156,6 @@ controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'c
     }).error( function(){
         console.log( 'Błąd pobrania pliku json' );
     });
-
 }]);
 
 

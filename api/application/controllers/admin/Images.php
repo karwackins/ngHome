@@ -8,6 +8,12 @@
 
 class Images extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('site/Notes_model');
+    }
 
     public function upload($id) {
 
@@ -25,6 +31,9 @@ class Images extends CI_Controller
         } else {
             echo 'No files';
         }
+        $fileName = $_FILES[ 'file' ][ 'name' ];
+        $this->setThumb($id, $fileName);
+        $this->fileCounter($id, $op = 1 );
     }
 
     public function get($id) {
@@ -56,5 +65,17 @@ class Images extends CI_Controller
         $imagePath = $imagePath . $image;
         unlink($imagePath);
 
+        $this->fileCounter($id, $op = -1 );
+
+    }
+
+    public function setThumb($id, $fileName)
+    {
+        $this->Notes_model->setThumb($id, $fileName);
+    }
+
+    public function fileCounter($id, $op){
+
+        $this->Notes_model->fileCounter($id, $op);
     }
 }
