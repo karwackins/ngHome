@@ -25,13 +25,26 @@ class Images extends CI_Controller
             mkdir($basePath, 0777);
             $uploadPath =  $basePath . $_FILES[ 'file' ][ 'name' ];
             move_uploaded_file( $tempPath, $uploadPath );
+
+            $filename = $uploadPath;
+            list($width, $height) = getimagesize($filename);
+            $new_width = $width * 0.3;
+            $new_height = $height * 0.3;
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromjpeg($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            $galleryPath = $uploadPath;
+            imagejpeg( $image_p, $galleryPath . _res . '.jpg', 100 );
+            unlink($uploadPath);
+
             $answer = array( 'answer' => 'File transfer completed' );
             $json = json_encode( $answer );
             echo $json;
         } else {
             echo 'No files';
         }
-        $fileName = $_FILES[ 'file' ][ 'name' ];
+//        $fileName = $_FILES[ 'file' ][ 'name' ];
+        $fileName = $galleryPath.'_res.jpg';
         $this->setThumb($id, $fileName);
         $this->fileCounter($id, $op = 1 );
     }
