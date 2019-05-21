@@ -26,6 +26,8 @@ class Images extends CI_Controller
             $uploadPath =  $basePath . $_FILES[ 'file' ][ 'name' ];
             move_uploaded_file( $tempPath, $uploadPath );
 
+
+            //TODO: poprawic zapis nazwy pliku do bazy
             $filename = $uploadPath;
             list($width, $height) = getimagesize($filename);
             $new_width = $width * 0.3;
