@@ -36,7 +36,7 @@ class Images extends CI_Controller
             $image = imagecreatefromjpeg($filename);
             imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
             $galleryPath = $uploadPath;
-            imagejpeg( $image_p, $galleryPath . _res . '.jpg', 100 );
+            imagejpeg( $image_p, $galleryPath.'.jpg', 100 );
             unlink($uploadPath);
 
             $answer = array( 'answer' => 'File transfer completed' );
@@ -45,8 +45,8 @@ class Images extends CI_Controller
         } else {
             echo 'No files';
         }
-//        $fileName = $_FILES[ 'file' ][ 'name' ];
-        $fileName = $galleryPath.'_res.jpg';
+        $fileName = $_FILES[ 'file' ][ 'name' ];
+        $fileName = $fileName.'.jpg';
         $this->setThumb($id, $fileName);
         $this->fileCounter($id, $op = 1 );
     }
