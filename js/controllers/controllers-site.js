@@ -1,6 +1,7 @@
 'use strict';
 
-var controllersSite = angular.module( 'controllersSite' , [] );
+
+var controllersSite = angular.module( 'controllersSite' , [ 'angularFileUpload' , 'myDirectives' ] );
 
 
 
@@ -65,7 +66,7 @@ controllersAdmin.controller( 'noteCreate' , [ '$scope' , '$http' , '$routeParams
     };
 }]);
 
-controllersSite.controller( 'noteEdit' , [ '$scope' , '$http' , '$routeParams', '$timeout' , function( $scope , $http , $routeParams , $timeout){
+controllersSite.controller( 'noteEdit' , [ '$scope' , '$http' , '$routeParams' , 'FileUploader' , '$timeout' , function( $scope , $http , $routeParams , FileUploader , $timeout ){
 
     var note_id = $routeParams.id;
     $scope.id = note_id;
@@ -75,6 +76,7 @@ controllersSite.controller( 'noteEdit' , [ '$scope' , '$http' , '$routeParams', 
     }).error( function(){
         console.log( 'Błąd pobrania pliku json' );
     });
+
 
     $scope.saveChanges = function ( note ) {
 
@@ -93,6 +95,52 @@ controllersSite.controller( 'noteEdit' , [ '$scope' , '$http' , '$routeParams', 
         console.log( note );
         console.log( $routeParams.id );
     };
+
+
+    function getImages() {
+        $http.get( 'api/admin/images/get/' + note_id ).
+        success( function( data ){
+            $scope.images = data;
+        }).error( function(){
+            console.log( 'Błąd połączenia z API' );
+        });
+    }
+    getImages();
+
+    var uploader = $scope.uploader = new FileUploader({
+        url : 'api/admin/images/upload/' + note_id
+    });
+
+    uploader.filters.push({
+        name: 'imageFilter',
+        fn: function(item /*{File|FileLikeObject}*/, options) {
+            var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+            return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+        }
+    });
+
+    uploader.onCompleteItem = function(fileItem, response, status, headers) {
+        getImages();
+    };
+
+    $scope.delImage = function ( imageName , $index ) {
+
+        $scope.images.splice( $index , 1 );
+
+        $http.post( 'api/admin/images/del/' , {
+
+            id : note_id,
+            image : imageName
+
+        }).success( function(  ){
+
+        }).error( function(){
+            console.log( 'Błąd połączenia z API' );
+        });
+
+    };
+
+
 }]);
 
 controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'checkToken' , function( $scope , $http, $location, checkToken ){
@@ -108,7 +156,6 @@ controllersAdmin.controller( 'siteNotes' , [ '$scope' , '$http', '$location', 'c
     }).error( function(){
         console.log( 'Błąd pobrania pliku json' );
     });
-
 }]);
 
 
