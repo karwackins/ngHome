@@ -48,10 +48,10 @@ class Users_model extends CI_Model
         $this->db->delete('users', $user);
     }
 
-    public function get_unique($id, $email){
-        $this->db->where('email', $email);
-        !$id || $this->db->where('id !=', $id);
+    public function get_unique($where){
+        $this->db->where($where);
         $q = $this->db->get('users');
+
 
         return $q->row();
     }

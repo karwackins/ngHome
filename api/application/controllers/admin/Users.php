@@ -86,13 +86,17 @@ class Users extends CI_Controller
     {
         $id = $this->input->post('id');
         $email = $this->input->post('email');
+        $where = array(
+          'id' => $id,
+          'email' => $email
+        );
+        $result = $this->Users_model->get_unique($where);
 
-        if($this->Users_model->get_unique($id, $email))
+        if($this->Users_model->get_unique($where))
         {
-            $this->form_validation->set_message('unique_email', 'Inny użytkownik ma taki adres e-mail');
-            return false;
+            return true;
         }
-
-        return true;
+        $this->form_validation->set_message('unique_email', 'Inny użytkownik ma taki adres e-mail');
+        return false;
     }
 }

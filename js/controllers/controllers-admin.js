@@ -230,6 +230,7 @@ controllersAdmin.controller( 'userEdit' , [ '$scope' , '$http' , '$routeParams',
 	$scope.saveChanges = function ( user ) {
 
         $http.post( '/api/admin/users/update/', {
+            id: user.id,
             user: user,
             name: user.name,
             email: user.email,
@@ -246,7 +247,6 @@ controllersAdmin.controller( 'userEdit' , [ '$scope' , '$http' , '$routeParams',
                 $scope.success = true;
                 $timeout(function() {
                     $scope.success = false;
-                    $scope.user = {};
                 }, 3000)
             }
         }).error( function(){
