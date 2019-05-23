@@ -18,7 +18,16 @@ class Notes_model extends CI_Model{
     {
         if($id == false)
         {
-            $q =  $this->db->get('Notes');
+            $this->db->select('
+                notes.id,
+                notes.title,
+                notes.content,
+                notes.date,
+                notes.thumb,
+                notes.file_count,
+                users.name
+                ')->from('notes')->join('users','users.id = notes.user_id');
+            $q =  $this->db->order_by('notes.date', 'DESC')->get();
             $q = $q->result();
         } else
         {

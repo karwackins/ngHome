@@ -6,34 +6,32 @@
       <br>
     </div>
 
-    <div class="col-xs-6 text-right">
-      <a href="#/admin/note/create" class="btn btn-success">Nowa notatka</a>
-    </div>
+    <!--<div class="col-xs-6 text-right">-->
+      <!--<a href="#/admin/note/create" class="btn btn-success">Nowa notatka</a>-->
+    <!--</div>-->
 
   </div>
   <div class="row">
     <div class="col-sm-12">
 
-      <div ng-repeat="note in notes | filter : search">
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            <h2>
-                {{note.title}}
-                <span class="label label-warning pull-right">Tytuł: {{note.title}}</span>
-            </h2>
-
-            <h3><span class="label label-info">Tekst: {{note.content}}</span></h3>
-            <br>
-
-            <a href="#/admin/note/edit/{{note.id}}" class="btn btn-success">Edytuj</a>
-            <button ng-click="delete( note , $index )" class="btn btn-danger pull-right">Usuń</button>
-
-          </div>
-        </div>
-
-      </div>
+      <table class="table table-hover">
+        <thead>
+          <th>L.p</th>
+          <th>Data notatki</th>
+          <th>Tytuł</th>
+          <th>Autor</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="note in notes| filter : search">
+          <td>{{note.id}}</td>
+          <td>{{note.date}}</td>
+          <td>{{note.title}}</td>
+          <td>{{note.name}}</td>
+          <td><a href="#/admin/note/edit/{{note.id}}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+          <td><button ng-click="delete( note , $index )" class="btn btn-danger btn-sm pull-right"><span class="glyphicon glyphicon-trash"></span></button></td>
+        </tr>
+        </tbody>
+      </table>
 
     </div>
   </div>
